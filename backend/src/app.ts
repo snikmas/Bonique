@@ -1,0 +1,14 @@
+import express from 'express'
+import dotenv from 'dotenv'
+import { connectDB } from '../config/db';
+
+dotenv.config({ path: './config/config.env'})
+
+connectDB();
+
+console.log(" mongo_uri: ", process.env.MONGO_URI)
+const app = express();
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`port:${PORT} ${process.env.NODE_ENV}`));
